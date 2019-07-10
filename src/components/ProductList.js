@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Product from './Product'
-import { productData } from '../utils/_DATA'
+// import { productData } from '../utils/_DATA'
+import { connect } from 'react-redux'
 
-export default class ProductList extends Component {
+class ProductList extends Component {
   render() {
+    const productData = this.props.products
     const products = Object.values(productData)
 
     return (
@@ -31,3 +33,11 @@ export default class ProductList extends Component {
     )
   }
 }
+
+function mapStateToProps({ products }) {
+  return {
+    products
+  }
+}
+
+export default connect(mapStateToProps)(ProductList)
