@@ -1,4 +1,4 @@
-export const productData = {
+const products = {
   product1: {
     name: 'Sunflower Melody',
     cost: 30,
@@ -27,4 +27,34 @@ export const productData = {
     image2x: '../images/flower-4@2x.png',
     image3x: '../images/flower-4@3x.png'
   }
+}
+
+let cart = {
+  total: 0,
+  quantity: 0
+}
+
+export const _getProducts = () => {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({ ...products }), 1000)
+  })
+}
+
+export function _getCart() {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({ ...cart }), 1000)
+  })
+}
+
+export function _saveCart({ total, quantity }) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      cart = {
+        total: cart.total + total,
+        quantity: cart.quantity + quantity
+      }
+
+      res(cart)
+    }, 1000)
+  })
 }
