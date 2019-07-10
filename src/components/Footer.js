@@ -3,10 +3,10 @@ import React from 'react'
 function Footer() {
   return (
     <footer id="footer" role="navigation">
-      <nav id="nav-footer" class="max-width-container">
-        <div class="center-justify">
-          <header class="all-caps">get to know us</header>
-          <ul class="center-justify footer-nav-group">
+      <nav id="nav-footer" className="max-width-container">
+        <div className="center-justify">
+          <header className="all-caps">get to know us</header>
+          <ul className="center-justify footer-nav-group">
             <li>
               <a href="#about-us">About Us</a>
             </li>
@@ -21,9 +21,9 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="center-justify">
-          <header class="all-caps">learn more about</header>
-          <ul class="center-justify footer-nav-group">
+        <div className="center-justify">
+          <header className="all-caps">learn more about</header>
+          <ul className="center-justify footer-nav-group">
             <li>
               <a href="#blog">Blog</a>
             </li>
@@ -38,9 +38,9 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div class="center-justify">
-          <header class="all-caps">shop vicky's</header>
-          <ul class="center-justify footer-nav-group">
+        <div className="center-justify">
+          <header className="all-caps">shop vicky's</header>
+          <ul className="center-justify footer-nav-group">
             <li>
               <a href="#delivery">Same-Day Flower Delivery</a>
             </li>
