@@ -53,6 +53,8 @@ export function _saveCart({ total, quantity }) {
         total: cart.total + total,
         quantity: cart.quantity + quantity
       }
+
+      res(cart)
     }, 1000)
   })
 }
