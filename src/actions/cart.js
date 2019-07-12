@@ -10,16 +10,26 @@ export function receiveCart(cart) {
   }
 }
 
-function updateCart(cart) {
+// function updateCart(cart) {
+//   return {
+//     type: SAVE_CART,
+//     cart
+//   }
+// }
+function updateCart(cost, selectedQty) {
   return {
     type: SAVE_CART,
-    cart
+    cost,
+    selectedQty
   }
 }
 
-export function handleUpdateCart(cart) {
+export function handleUpdateCart(cost, selectedQty) {
   return async dispatch => {
-    const returnCart = await saveCart(cart)
-    dispatch(updateCart(returnCart))
+    console.log('cost qty', cost, selectedQty)
+    const returnCart = await saveCart({ cost, selectedQty })
+    console.log('respond cart', returnCart)
+    // dispatch(updateCart(returnCart))
+    dispatch(updateCart(cost, selectedQty))
   }
 }

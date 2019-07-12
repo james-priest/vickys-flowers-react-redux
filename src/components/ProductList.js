@@ -20,13 +20,7 @@ class ProductList extends Component {
 
         <div className="products-wrapper">
           {products.map(product => (
-            <Product
-              key={product.name}
-              name={product.name}
-              image={product.image}
-              image2x={product.image2x}
-              image3x={product.image3x}
-            />
+            <Product key={product.name} product={product} />
           ))}
         </div>
       </main>
