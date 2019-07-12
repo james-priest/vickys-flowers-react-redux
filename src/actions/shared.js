@@ -1,6 +1,7 @@
 import { getInitialData } from '../utils/api'
 import { receiveProducts } from './products'
 import { receiveCart } from './cart'
+import { isLoading } from './loading'
 
 // export function handleInitialData() {
 //   return dispatch => {
@@ -13,8 +14,10 @@ import { receiveCart } from './cart'
 
 export function handleInitialData() {
   return async dispatch => {
+    dispatch(isLoading(true))
     const { products, cart } = await getInitialData()
     dispatch(receiveProducts(products))
     dispatch(receiveCart(cart))
+    dispatch(isLoading(false))
   }
 }

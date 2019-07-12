@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Product from './Product'
-// import { productData } from '../utils/_DATA'
 import { connect } from 'react-redux'
+import { css } from '@emotion/core'
+import { BeatLoader } from 'react-spinners'
 
 class ProductList extends Component {
   render() {
+    const { loading } = this.props
     const productData = this.props.products
     const products = Object.values(productData)
 
@@ -19,17 +21,32 @@ class ProductList extends Component {
         </div>
 
         <div className="products-wrapper">
-          {products.map(product => (
-            <Product key={product.name} product={product} />
-          ))}
+          {loading.isLoading === true ? (
+            <div>
+              <p>Loading...</p>
+              <BeatLoader
+                css={css`
+                  display: block;
+                `}
+                size={20}
+                color={'#d33169'}
+                loading={loading.isLoading}
+              />
+            </div>
+          ) : (
+            products.map(product => (
+              <Product key={product.name} product={product} />
+            ))
+          )}
         </div>
       </main>
     )
   }
 }
 
-function mapStateToProps({ products }) {
+function mapStateToProps({ products, loading }) {
   return {
+    loading,
     products
   }
 }

@@ -325,7 +325,7 @@ footer nav header {
   .product-container:not(:first-child) {
     margin-left: 0;
   }
-  .products-wrapper :nth-of-type(even) {
+  .products-wrapper figure:nth-of-type(even) {
     margin-left: 1em;
   }
 
