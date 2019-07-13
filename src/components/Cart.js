@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleUpdateCart } from '../actions/cart'
-// import { cartLoading } from '../actions/loading'
 import { ClipLoader } from 'react-spinners'
 import { css } from '@emotion/core'
+import { randomizeDropDowns } from '../actions/shared'
 
 class Cart extends Component {
   onDragOver = e => {
@@ -14,6 +14,7 @@ class Cart extends Component {
     const product = JSON.parse(e.dataTransfer.getData('product'))
 
     handleUpdateCart(product.cost, product.selectedQty)
+    randomizeDropDowns()
   }
   render() {
     const { loading, cart } = this.props
@@ -29,8 +30,9 @@ class Cart extends Component {
         <div className="total">
           $<span id="cart-total">{cart.total}</span>
         </div>
+        <div> | </div>
         {loading.cartLoading === true ? (
-          <div style={{ width: 50, textAlign: 'center' }}>
+          <div style={{ height: 32, width: 36, textAlign: 'center' }}>
             <ClipLoader
               color={'#86ECB9'}
               loading={loading.cartLoading}
@@ -43,7 +45,6 @@ class Cart extends Component {
           </div>
         ) : (
           <>
-            <div> | </div>
             <div className="cart-image" id="cart-qty">
               {cart.quantity}
             </div>
@@ -63,5 +64,5 @@ const mapStateToProps = ({ cart, loading }) => {
 
 export default connect(
   mapStateToProps,
-  { handleUpdateCart }
+  { handleUpdateCart, randomizeDropDowns }
 )(Cart)

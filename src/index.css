@@ -139,7 +139,7 @@ header, footer {
 .top-level-nav li.menu-item a {
   display: flex;
   text-align: center;
-  padding: 24px 16px; /* pixel-perfect at 16px */
+  padding: 20px 16px; /* pixel-perfect at 16px */
   overflow: hidden;
   /* transition: transform 0.2s; /* menu item zoom on hover */
   transition: background-color 0.1s;
@@ -174,11 +174,14 @@ header, footer {
 }
 
 .cart-container {
+  position: absolute;
+  top:0;
+  right: 0;
   display: flex;
   align-items: center;
   font-size: 0.941176em; /* 16px/17px for 16px font */
   font-weight: 500; /* visually closest */
-  padding: 8px 12px;
+  padding: 7px 12px;
   margin: 4px 3px;
   border-radius: 10px;
   border: 1px solid var(--steel-blue);
