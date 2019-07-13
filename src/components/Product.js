@@ -4,12 +4,15 @@ import DropDown from './DropDown'
 
 export default class Product extends Component {
   static propTypes = {
-    image: PropTypes.string.isRequired,
-    image2x: PropTypes.string.isRequired,
-    image3x: PropTypes.string.isRequired
+    product: PropTypes.object.isRequired
   }
+  onDragStart = e => {
+    e.dataTransfer.setData('product', JSON.stringify(this.props.product))
+  }
+  onDragEnd = e => {}
   render() {
-    const { image, image2x, image3x } = this.props
+    const { id, name, cost, image, image2x, image3x } = this.props.product
+
     return (
       <figure className="product-container">
         <img
@@ -20,18 +23,18 @@ export default class Product extends Component {
               `}
           className="product-image"
           alt="Sunflower Melody Flower Arrangement"
-          draggable="true"
-          data-quantity-id="product1"
-          data-product-cost="30"
+          draggable
+          onDragStart={this.onDragStart}
+          onDragEnd={this.onDragEnd}
         />
-        <figcaption className="product-label">Sunflower Melody</figcaption>
+        <figcaption className="product-label">{name}</figcaption>
         <div className="price" aria-label="cost">
-          $30.00
+          ${cost}
         </div>
-        <label htmlFor="product1" className="a11y">
+        <label htmlFor={id} className="a11y">
           Quantity
         </label>
-        <DropDown id={1} count={20} value={5} />
+        <DropDown id={id} count={20} />
       </figure>
     )
   }

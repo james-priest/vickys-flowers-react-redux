@@ -3,6 +3,16 @@ import logo from '../images/logo.svg'
 import Cart from './Cart'
 
 class Header extends Component {
+  handleMenuClick = e => {
+    console.log('menu click')
+    e.preventDefault()
+    const body = document.querySelector('body')
+    if (body.className.split(' ').includes('responsive')) {
+      body.classList.remove('responsive')
+    } else {
+      body.classList.add('responsive')
+    }
+  }
   render() {
     return (
       <header role="banner" className="fixed-header">
@@ -10,7 +20,11 @@ class Header extends Component {
           <nav className="top-level-nav">
             <ul className="all-caps">
               <li className="menu-icon">
-                <a href="#menu" aria-label="hamburger menu">
+                <a
+                  href="#menu"
+                  aria-label="hamburger menu"
+                  onClick={this.handleMenuClick}
+                >
                   <svg viewBox="0 4 24 14" alt="hamburger menu icon">
                     <path
                       fill="#fff"

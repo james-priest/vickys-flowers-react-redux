@@ -8,9 +8,15 @@ export default function cart(state = {}, action) {
         ...action.cart
       }
     case SAVE_CART:
+      const { cost, selectedQty } = action
+      console.log('state', state)
+      console.log('cost', cost)
+      console.log('selectedQty', selectedQty)
       return {
         ...state,
-        ...action.cart
+        total: state.total + cost * selectedQty,
+        quantity: state.quantity + selectedQty
+        // ...action.cart
       }
     default:
       return state
