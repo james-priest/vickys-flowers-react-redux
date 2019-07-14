@@ -8,8 +8,13 @@ export default class Product extends Component {
   }
   onDragStart = e => {
     e.dataTransfer.setData('product', JSON.stringify(this.props.product))
+    document.getElementById('cart').classList.add('dropzone')
+    e.target.classList.add('dragging')
   }
-  onDragEnd = e => {}
+  onDragEnd = e => {
+    document.getElementById('cart').classList.remove('dropzone')
+    e.target.classList.remove('dragging')
+  }
   render() {
     const { id, name, cost, image, image2x, image3x } = this.props.product
 

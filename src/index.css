@@ -71,9 +71,9 @@ figure {
   box-shadow: 0 0 20px rgb(212, 196, 52);
   border: 1px solid #a0850a;
   border-radius: 10px;
-  padding-right: 12px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  /* padding-right: 12px; */
+  /* padding-top: 7px;
+  padding-bottom: 7px; */
   transition: border 0.15s, box-shadow 0.1s;
 }
 
