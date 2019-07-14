@@ -8,27 +8,18 @@ class DropDown extends Component {
     id: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired
   }
-  // state = {
-  //   value: 0
-  // }
   componentDidMount() {
     this.randomizeSelection()
   }
   handleChange = e => {
-    // this.setState({
-    //   value: e.target.value
-    // })
     const { id, updateQuantity } = this.props
     updateQuantity(id, e.target.value)
   }
   randomizeSelection = () => {
     const value = Math.floor(Math.random() * 20) + 1
-    // this.setState({
-    //   value
-    // })
     const { id, updateQuantity } = this.props
     updateQuantity(id, value)
-    console.log('value', value)
+    // console.log('value', value)
   }
   createOptions = ({ count } = this.props) => {
     const optionElements = []

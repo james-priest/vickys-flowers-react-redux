@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleUpdateCart } from '../actions/cart'
-// import { cartLoading } from '../actions/loading'
 import { ClipLoader } from 'react-spinners'
 import { css } from '@emotion/core'
 
@@ -10,10 +9,11 @@ class Cart extends Component {
     e.preventDefault()
   }
   onDrop = e => {
-    const { handleUpdateCart } = this.props
+    const { handleUpdateCart, products } = this.props
     const product = JSON.parse(e.dataTransfer.getData('product'))
+    const prodKeys = Object.keys(products)
 
-    handleUpdateCart(product.cost, product.selectedQty)
+    handleUpdateCart(product.cost, product.selectedQty, prodKeys)
   }
   render() {
     const { loading, cart } = this.props
@@ -29,8 +29,9 @@ class Cart extends Component {
         <div className="total">
           $<span id="cart-total">{cart.total}</span>
         </div>
+        <div> | </div>
         {loading.cartLoading === true ? (
-          <div style={{ width: 50, textAlign: 'center' }}>
+          <div style={{ height: 32, width: 36, textAlign: 'center' }}>
             <ClipLoader
               color={'#86ECB9'}
               loading={loading.cartLoading}
@@ -43,7 +44,6 @@ class Cart extends Component {
           </div>
         ) : (
           <>
-            <div> | </div>
             <div className="cart-image" id="cart-qty">
               {cart.quantity}
             </div>
@@ -54,10 +54,11 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, loading }) => {
+const mapStateToProps = ({ cart, loading, products }) => {
   return {
     loading,
-    cart
+    cart,
+    products
   }
 }
 
