@@ -3,18 +3,17 @@ import { connect } from 'react-redux'
 import { handleUpdateCart } from '../actions/cart'
 import { ClipLoader } from 'react-spinners'
 import { css } from '@emotion/core'
-import { randomizeDropDowns } from '../actions/shared'
 
 class Cart extends Component {
   onDragOver = e => {
     e.preventDefault()
   }
   onDrop = e => {
-    const { handleUpdateCart } = this.props
+    const { handleUpdateCart, products } = this.props
     const product = JSON.parse(e.dataTransfer.getData('product'))
+    const prodKeys = Object.keys(products)
 
-    handleUpdateCart(product.cost, product.selectedQty)
-    randomizeDropDowns()
+    handleUpdateCart(product.cost, product.selectedQty, prodKeys)
   }
   render() {
     const { loading, cart } = this.props
@@ -55,14 +54,15 @@ class Cart extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, loading }) => {
+const mapStateToProps = ({ cart, loading, products }) => {
   return {
     loading,
-    cart
+    cart,
+    products
   }
 }
 
 export default connect(
   mapStateToProps,
-  { handleUpdateCart, randomizeDropDowns }
+  { handleUpdateCart }
 )(Cart)
