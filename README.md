@@ -1,68 +1,102 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Vicky's Flowers (React/Redux)
 
-## Available Scripts
+This is a webpage from a fictitious e-commerce site. It was built from the design comp below as part of a take-home test administered by [Stamps.com](Stamps.com).
 
-In the project directory, you can run:
+![screenshot](docs/screenshot.jpg)
 
-### `npm start`
+The completed project has the following features:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Mobile-ready, fully-responsive design.
+- Accessibility tested and ARIA-compliant for use with screen readers and other assistive technology.
+- Use of Create-React-App build environment.
+- Use of Redux for management of products, cart, & loading state.
+- Use of Redux Thunk for Async API calls.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Assignment instructions can be found here:
 
-### `npm test`
+- [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+Clone the repository.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bs
+git clone https://github.com/james-priest/vickys-flowers-react-redux.git
+cd vickys-flowers-react-redux
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Use yarn or npm to install dependencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+yarn
 
-### `npm run eject`
+# or
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Development mode
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Starts a dev server.
+- Bundles but does not optimize or minify.
+- Launches website at [http://localhost:3000/](http://localhost:3000/).
 
-## Learn More
+```sh
+yarn start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# or
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm run start
+```
 
-### Code Splitting
+### Production mode
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Will build once (No watch mode or hot module replacement).
+- Minifies html, js, css, and optimizes image resources.
+- Outputs to `build/`.
 
-### Analyzing the Bundle Size
+```sh
+yarn build
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# or
 
-### Making a Progressive Web App
+npm run build
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+In order to view the production version a local http server needs to be used to launch `dist/index.html` .
 
-### Advanced Configuration
+Here are two links showing how to spin up a local http server.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- [Simple HTTP Server](http://jasonwatmore.com/post/2016/06/22/nodejs-setup-simple-http-server-local-web-server) - Runs on Node.js.
+- [How to run things locally](https://threejs.org/docs/#manual/en/introduction/How-to-run-things-locally) - Instructions for Node.js, Python, & Ruby.
 
-### Deployment
+Alternatively, a Visual Studio Code extension can be used to run the site from within the VSCode dev environment.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Launch a development local Server with live reload feature for static & dynamic pages.
 
-### `npm run build` fails to minify
+## Performance Audit
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The site was tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse/) which is found in the Audits tab of Chrome Dev Tools. It was evaluated for the following:
+
+- Performance
+- Best Practices
+- Accessibility
+- SEO
+
+![Audit](docs/audit1.jpg)
+
+Best practices shows an 86 due to assets being served using HTTP/1 protocol which is what my local dev server uses. This will jump to the 95% range once HTTP/2 is used from a production web server.
+
+## Testing
+
+This webpage was successfully tested on Firefox, Edge, & Chrome.
+
+Safari was not available to test with but transpiling and polyfill settings were configured to target the last two versions of every browser in use with more than 2% market share.
+
+## Screenshots
+
+![mobile display](docs/screenshot2_small.jpg)
+
+![browser display](docs/screenshot3_small.jpg)
