@@ -3,15 +3,21 @@ import logo from '../images/logo.svg'
 import Cart from './Cart'
 
 class Header extends Component {
-  handleMenuClick = e => {
-    console.log('menu click')
+  state = {
+    expandMenu: false
+  }
+  toggleMenu = e => {
     e.preventDefault()
     const body = document.querySelector('body')
-    if (body.className.split(' ').includes('responsive')) {
-      body.classList.remove('responsive')
-    } else {
+
+    if (this.state.expandMenu === false) {
       body.classList.add('responsive')
+    } else {
+      body.classList.remove('responsive')
     }
+    this.setState(prevState => ({
+      expandMenu: !prevState.expandMenu
+    }))
   }
   render() {
     return (
@@ -23,7 +29,7 @@ class Header extends Component {
                 <a
                   href="#menu"
                   aria-label="hamburger menu"
-                  onClick={this.handleMenuClick}
+                  onClick={this.toggleMenu}
                 >
                   <svg viewBox="0 4 24 14" alt="hamburger menu icon">
                     <path

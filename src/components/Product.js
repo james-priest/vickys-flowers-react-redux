@@ -6,14 +6,19 @@ export default class Product extends Component {
   static propTypes = {
     product: PropTypes.object.isRequired
   }
+  state = {
+    dragging: false
+  }
   onDragStart = e => {
     e.dataTransfer.setData('product', JSON.stringify(this.props.product))
     document.getElementById('cart').classList.add('dropzone')
     e.target.classList.add('dragging')
+    this.setState({ dragging: true })
   }
   onDragEnd = e => {
     document.getElementById('cart').classList.remove('dropzone')
     e.target.classList.remove('dragging')
+    this.setState({ dragging: false })
   }
   render() {
     const { id, name, cost, image, image2x, image3x } = this.props.product
