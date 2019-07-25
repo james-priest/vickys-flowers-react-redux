@@ -76,18 +76,18 @@ Alternatively, a Visual Studio Code extension can be used to run the site from w
 
 - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - Launch a development local Server with live reload feature for static & dynamic pages.
 
-## Performance Audit
+## Audits
 
-The site was tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse/) which is found in the Audits tab of Chrome Dev Tools. It was evaluated for the following:
+The site was tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse/) which is found in the Audits tab of Chrome Dev Tools. The following areas were evaluated.
 
 - Performance
 - Best Practices
 - Accessibility
 - SEO
 
-![Audit](docs/audit1.jpg)
+![Audit](docs/audit2.jpg)
 
-Best practices shows an 86 due to assets being served using HTTP/1 protocol which is what my local dev server uses. This will jump to the 95% range once HTTP/2 is used from a production web server.
+Accessibility shows a score of 83 due to "...background and foreground colors not having a sufficient contrast ratio". This specifically refers to the fuchsia/pink headers.
 
 ## Testing
 
