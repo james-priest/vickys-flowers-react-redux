@@ -17,13 +17,13 @@ Please include any task runner files that may be used to automate the build proc
 
 ## HTML/CSS
 
-You should have received an invitation to the Zeplin project at james-priest@outlook.com
+You should have received an invitation to the Zeplin project at abc@company.com
 
 Please convert this Zeplin/Sketch design file into HTML & CSS:
 [https://zpl.io/2EXE7yb](https://zpl.io/2EXE7yb)
 
 - It should work on Chrome, Firefox, IE, Edge, and Safari (Mac) browsers.
-- Feel free to write the CSS with or without a pre-processor like Sass* or LESS.
+- Feel free to write the CSS with or without a pre-processor like Sass\* or LESS.
 - The page should be responsive and you can create your own media queries or use a framework like Bootstrap.
 - Only the largest viewport has been provided so use your judgment when arranging the content for smaller devices.
 - The grid overlay is not enabled upon opening the Zeplin file, but use it as needed. Toggling “Grid” in the right panel will display a 12 column grid layout to assist with responsive coding.
@@ -33,7 +33,7 @@ Please note, Zeplin provides CSS for selected elements. Reference it as needed t
 
 ## JavaScript
 
-- The product images are draggable items.  The cart icon is the drop target.
+- The product images are draggable items. The cart icon is the drop target.
 - At the start of the application, populate every white dropdown/select below a product with a random quantity between 1 and 20.
 - The total displayed in the cart will be zero, for both quantity and price.
 - When the user drags and drops a product image onto the cart icon, add the quantity and keep a running total of all the items and amount added to the cart.
@@ -41,7 +41,7 @@ Please note, Zeplin provides CSS for selected elements. Reference it as needed t
 - After each successful drop, resets the quantities for every product with a new set of random numbers.
 - If the user misses the cart icon when letting go of drag, then the product image snaps back to the starting location and there is no other change.
 - Touch events do not need to be considered for purposes of this exercise. The draggable requirements will be evaluated on desktop in the browsers listed in the HTML/CSS section.
-- Feel free to use a JavaScript library, framework and any plugins.  (E.g. Angular, etc.)
+- Feel free to use a JavaScript library, framework and any plugins. (E.g. Angular, etc.)
 
 When the test is completed, please zip the files and return them to me.
 
